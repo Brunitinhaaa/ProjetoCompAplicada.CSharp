@@ -1,0 +1,10 @@
+﻿
+# Visual Studio Files
+/.vs
+
+# Build Files 
+/obj
+/bin
+
+# Environment variables
+.env
