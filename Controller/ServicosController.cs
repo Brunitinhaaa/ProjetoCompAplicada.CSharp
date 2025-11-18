@@ -38,5 +38,13 @@ namespace ProjetoCompAplicada.CSharp.Controllers
 
             return Ok(ResponseBase<object>.Ok(servico));
         }
+
+        [HttpGet("filter-options")]
+        public async Task<IActionResult> GetFilterOptions()
+        {
+            var result = await _servicoPublicQueryService.GetFilterOptionsAsync();
+            return Ok(ResponseBase<FilterOptionsResponse>.Ok(result));
+        }
+
     }
 }

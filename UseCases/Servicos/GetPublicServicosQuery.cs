@@ -10,6 +10,8 @@ namespace ProjetoCompAplicada.CSharp.UseCases.Servicos
     {
         Task<object> GetServicosAsync(PublicServicosFilter filter);
         Task<Servico?> GetServicoByIdAsync(long id);
+
+        Task<FilterOptionsResponse> GetFilterOptionsAsync();
     }
 
     public class ServicoPublicQueryService : IServicoPublicQueryService
@@ -137,6 +139,41 @@ namespace ProjetoCompAplicada.CSharp.UseCases.Servicos
                 case "categoria": return s.Categoria;
                 default: return s.Id;
             }
+        }
+
+        public async Task<FilterOptionsResponse> GetFilterOptionsAsync()
+        {
+            var query = _context.Servicos
+                .AsNoTracking()
+                .Where(s => s.Ativo);
+
+            var categories = await query
+                .Select(s => s.Categoria!)
+                .Where(c => !string.IsNullOrWhiteSpace(c))
+                .Distinct()
+                .OrderBy(c => c)
+                .ToListAsync();
+
+            var cities = await query
+                .Select(s => s.Cidade!)
+                .Where(c => !string.IsNullOrWhiteSpace(c))
+                .Distinct()
+                .OrderBy(c => c)
+                .ToListAsync();
+
+            var states = await query
+                .Select(s => s.Uf!)
+                .Where(c => !string.IsNullOrWhiteSpace(c))
+                .Distinct()
+                .OrderBy(c => c)
+                .ToListAsync();
+
+            return new FilterOptionsResponse
+            {
+                Categories = categories,
+                Cities = cities,
+                States = states
+            };
         }
     }
 }
