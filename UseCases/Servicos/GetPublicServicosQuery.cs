@@ -29,6 +29,18 @@ namespace ProjetoCompAplicada.CSharp.UseCases.Servicos
                 .Include(s => s.Imagem)
                 .Where(s => s.Ativo);
 
+            if (filter.HasImage.HasValue)
+            {
+                if (filter.HasImage.Value)
+                {
+                    query = query.Where(s => s.Imagem != null);
+                }
+                else
+                {
+                    query = query.Where(s => s.Imagem == null);
+                }
+            }
+
             if (!string.IsNullOrWhiteSpace(filter.Cidade))
             {
                 var cidade = filter.Cidade.Trim();
