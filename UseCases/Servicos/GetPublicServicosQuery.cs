@@ -12,6 +12,7 @@ namespace ProjetoCompAplicada.CSharp.UseCases.Servicos
         Task<Servico?> GetServicoByIdAsync(long id);
 
         Task<FilterOptionsResponse> GetFilterOptionsAsync();
+        Task<ServicosSummaryResponse> GetSummaryAsync();
     }
 
     public class ServicoPublicQueryService : IServicoPublicQueryService
@@ -185,6 +186,41 @@ namespace ProjetoCompAplicada.CSharp.UseCases.Servicos
                 Categories = categories,
                 Cities = cities,
                 States = states
+            };
+        }
+
+        public async Task<ServicosSummaryResponse> GetSummaryAsync()
+        {
+            var query = _context.Servicos
+                .AsNoTracking()
+                .Where(s => s.Ativo);
+
+            var totalActiveServices = await query.CountAsync();
+
+            var totalCategories = await query
+                .Select(s => s.Categoria!)
+                .Where(c => !string.IsNullOrWhiteSpace(c))
+                .Distinct()
+                .CountAsync();
+
+            var totalCities = await query
+                .Select(s => s.Cidade!)
+                .Where(c => !string.IsNullOrWhiteSpace(c))
+                .Distinct()
+                .CountAsync();
+
+            var totalStates = await query
+                .Select(s => s.Uf!)
+                .Where(c => !string.IsNullOrWhiteSpace(c))
+                .Distinct()
+                .CountAsync();
+
+            return new ServicosSummaryResponse
+            {
+                TotalActiveServices = totalActiveServices,
+                TotalCategories = totalCategories,
+                TotalCities = totalCities,
+                TotalStates = totalStates
             };
         }
     }

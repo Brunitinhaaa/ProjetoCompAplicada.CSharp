@@ -46,5 +46,11 @@ namespace ProjetoCompAplicada.CSharp.Controllers
             return Ok(ResponseBase<FilterOptionsResponse>.Ok(result));
         }
 
+        [HttpGet("summary")]
+        public async Task<IActionResult> GetSummary()
+        {
+            var result = await _servicoPublicQueryService.GetSummaryAsync();
+            return Ok(ResponseBase<ServicosSummaryResponse>.Ok(result));
+        }
     }
 }
