@@ -1,6 +1,7 @@
 ﻿using DotNetEnv;
 using Microsoft.Extensions.Logging;
 using ProjetoCompAplicada.CSharp.Configurations;
+using ProjetoCompAplicada.CSharp.UseCases.Servicos;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,8 +21,12 @@ builder.Logging.AddConsole();
 builder.Logging.SetMinimumLevel(LogLevel.Warning);
 
 builder.Services.ConfigureDatabase();
+builder.Services.AddApplicationServices();
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IServicoPublicQueryService, ServicoPublicQueryService>();
 
 var app = builder.Build();
 
@@ -37,5 +42,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.MapControllers();
 
 app.Run();
