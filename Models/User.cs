@@ -1,32 +1,34 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ProjetoCompAplicada.CSharp.Models;
-
-[Table("users")]
-public class User
+namespace ProjetoCompAplicada.CSharp.Models
 {
-    [Key]
-    public long Id { get; set; }
+    [Table("users")]
+    public class User
+    {
+        [Key]
+        public long Id { get; set; }
 
-    [Required]
-    public string Nome { get; set; } = default!;
+        [Required]
+        public string Nome { get; set; } = null!;
 
-    [Required]
-    public string Sobrenome { get; set; } = default!;
+        [Required]
+        public string Sobrenome { get; set; } = null!;
 
-    [Required]
-    [EmailAddress]
-    public string Email { get; set; } = default!;
+        [Required]
+        [Column("email")]
+        public string Email { get; set; } = null!;
 
-    [Required]
-    public string Celular { get; set; } = default!;
+        [Required]
+        public string Celular { get; set; } = null!;
 
-    [Required]
-    public string Cpf { get; set; } = default!;
+        [Required]
+        public string Cpf { get; set; } = null!;
 
-    public string? CodigoPagseguro { get; set; }
+        [Column("codigo_pagseguro")]
+        public string? CodigoMercadoPago { get; set; }
 
-    [Required]
-    public string Senha { get; set; } = default!;
+        [Required]
+        public string Senha { get; set; } = null!;
+    }
 }
