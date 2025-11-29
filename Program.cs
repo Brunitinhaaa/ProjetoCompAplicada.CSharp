@@ -2,10 +2,6 @@
 using Microsoft.Extensions.Logging;
 using ProjetoCompAplicada.CSharp.Configurations;
 using ProjetoCompAplicada.CSharp.UseCases.Servicos;
-using ProjetoCompAplicada.CSharp.Repositories;
-
-
-
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,8 +27,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IServicoPublicQueryService, ServicoPublicQueryService>();
-builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
-
 
 var app = builder.Build();
 

@@ -7211,23 +7211,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Cristian Leme\\.nuget\\packages\\": {},
-    "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\bf_fr\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Cristian Leme\\Desktop\\ProjetoCompAplicada.CSharp\\ProjetoCompAplicada.CSharp.csproj",
+      "projectUniqueName": "D:\\ESTUDOS\\ProjetoCompAplicada.CSharp\\ProjetoCompAplicada.CSharp.csproj",
       "projectName": "ProjetoCompAplicada.CSharp",
-      "projectPath": "C:\\Users\\Cristian Leme\\Desktop\\ProjetoCompAplicada.CSharp\\ProjetoCompAplicada.CSharp.csproj",
-      "packagesPath": "C:\\Users\\Cristian Leme\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Cristian Leme\\Desktop\\ProjetoCompAplicada.CSharp\\obj\\",
+      "projectPath": "D:\\ESTUDOS\\ProjetoCompAplicada.CSharp\\ProjetoCompAplicada.CSharp.csproj",
+      "packagesPath": "C:\\Users\\bf_fr\\.nuget\\packages\\",
+      "outputPath": "D:\\ESTUDOS\\ProjetoCompAplicada.CSharp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Cristian Leme\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\bf_fr\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -7236,6 +7236,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
