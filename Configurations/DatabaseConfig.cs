@@ -10,11 +10,11 @@ public static class DatabaseConfig
     {
         Env.Load();
 
-        var server = Environment.GetEnvironmentVariable("MYSQL_SERVER");
-        var port = Environment.GetEnvironmentVariable("MYSQL_PORT");
-        var database = Environment.GetEnvironmentVariable("MYSQL_DATABASE");
-        var user = Environment.GetEnvironmentVariable("MYSQL_USER");
-        var password = Environment.GetEnvironmentVariable("MYSQL_PASSWORD");
+        var server = Environment.GetEnvironmentVariable("DB_SERVER");
+        var port = Environment.GetEnvironmentVariable("DB_PORT");
+        var database = Environment.GetEnvironmentVariable("DB_DATABASE");
+        var user = Environment.GetEnvironmentVariable("DB_USER");
+        var password = Environment.GetEnvironmentVariable("DB_PASSWORD");
 
         var connectionString = $"Server={server};Port={port};Database={database};User={user};Password={password};TreatTinyAsBoolean=true";
 
