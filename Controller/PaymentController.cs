@@ -15,24 +15,6 @@ namespace ProjetoCompAplicada.Controller
         }
 
         /// <summary>
-        /// Criar um pagamento
-        /// </summary>
-        [HttpPost]
-        public IActionResult Create([FromBody] PaymentRequest request)
-        {
-            var payment = _paymentService.Create(request);
-
-            return Ok(new PaymentResponse
-            {
-                Id = payment.Id,
-                Amount = payment.Amount,
-                Status = payment.Status,
-                Description = payment.Description,
-                CreatedAt = payment.CreatedAt
-            });
-        }
-
-        /// <summary>
         /// Listar todos os pagamentos
         /// </summary>
         [HttpGet]
