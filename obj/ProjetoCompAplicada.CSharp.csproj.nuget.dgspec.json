@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ESTUDOS\\ProjetoCompAplicada.CSharp\\ProjetoCompAplicada.CSharp.csproj": {}
+    "C:\\Dev\\back\\projetoCsharp\\ProjetoCompAplicada.CSharp\\ProjetoCompAplicada.CSharp.csproj": {}
   },
   "projects": {
-    "D:\\ESTUDOS\\ProjetoCompAplicada.CSharp\\ProjetoCompAplicada.CSharp.csproj": {
+    "C:\\Dev\\back\\projetoCsharp\\ProjetoCompAplicada.CSharp\\ProjetoCompAplicada.CSharp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ESTUDOS\\ProjetoCompAplicada.CSharp\\ProjetoCompAplicada.CSharp.csproj",
+        "projectUniqueName": "C:\\Dev\\back\\projetoCsharp\\ProjetoCompAplicada.CSharp\\ProjetoCompAplicada.CSharp.csproj",
         "projectName": "ProjetoCompAplicada.CSharp",
-        "projectPath": "D:\\ESTUDOS\\ProjetoCompAplicada.CSharp\\ProjetoCompAplicada.CSharp.csproj",
-        "packagesPath": "C:\\Users\\bf_fr\\.nuget\\packages\\",
-        "outputPath": "D:\\ESTUDOS\\ProjetoCompAplicada.CSharp\\obj\\",
+        "projectPath": "C:\\Dev\\back\\projetoCsharp\\ProjetoCompAplicada.CSharp\\ProjetoCompAplicada.CSharp.csproj",
+        "packagesPath": "C:\\Users\\ralk3\\.nuget\\packages\\",
+        "outputPath": "C:\\Dev\\back\\projetoCsharp\\ProjetoCompAplicada.CSharp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\bf_fr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ralk3\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,8 +40,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -54,6 +49,10 @@
             "DotNetEnv": {
               "target": "Package",
               "version": "[3.1.1, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.3.1, )"
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
@@ -93,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
