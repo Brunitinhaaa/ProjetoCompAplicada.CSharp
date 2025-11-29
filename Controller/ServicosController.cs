@@ -31,8 +31,8 @@ namespace ProjetoCompAplicada.CSharp.Controllers
             if (servico == null)
             {
                 return NotFound(ResponseBase<object>.Fail(
-                    new[] { "ServiÁo n„o encontrado." },
-                    "Recurso n„o encontrado"
+                    new[] { "Servi√ßo n√£o encontrado." },
+                    "Recurso n√£o encontrado"
                 ));
             }
 
