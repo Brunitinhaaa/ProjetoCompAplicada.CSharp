@@ -5,6 +5,8 @@ using ProjetoCompAplicada.CSharp.Middlewares;
 using ProjetoCompAplicada.CSharp.UseCases.Servicos;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using ProjetoCompAplicada.UseCases.Payments;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +33,10 @@ builder.Services.AddControllers();
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddFluentValidationClientsideAdapters();
 builder.Services.AddValidatorsFromAssemblyContaining<PublicServicosFilter>();
+
+builder.Services.AddSingleton<PaymentService>();
+
+
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
