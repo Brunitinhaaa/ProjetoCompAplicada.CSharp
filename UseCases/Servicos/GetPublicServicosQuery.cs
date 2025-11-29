@@ -10,6 +10,9 @@ namespace ProjetoCompAplicada.CSharp.UseCases.Servicos
     {
         Task<object> GetServicosAsync(PublicServicosFilter filter);
         Task<Servico?> GetServicoByIdAsync(long id);
+
+        Task<FilterOptionsResponse> GetFilterOptionsAsync();
+        Task<ServicosSummaryResponse> GetSummaryAsync();
     }
 
     public class ServicoPublicQueryService : IServicoPublicQueryService
@@ -26,6 +29,18 @@ namespace ProjetoCompAplicada.CSharp.UseCases.Servicos
             var query = _context.Servicos
                 .Include(s => s.Imagem)
                 .Where(s => s.Ativo);
+
+            if (filter.HasImage.HasValue)
+            {
+                if (filter.HasImage.Value)
+                {
+                    query = query.Where(s => s.Imagem != null);
+                }
+                else
+                {
+                    query = query.Where(s => s.Imagem == null);
+                }
+            }
 
             if (!string.IsNullOrWhiteSpace(filter.Cidade))
             {
@@ -137,6 +152,76 @@ namespace ProjetoCompAplicada.CSharp.UseCases.Servicos
                 case "categoria": return s.Categoria;
                 default: return s.Id;
             }
+        }
+
+        public async Task<FilterOptionsResponse> GetFilterOptionsAsync()
+        {
+            var query = _context.Servicos
+                .AsNoTracking()
+                .Where(s => s.Ativo);
+
+            var categories = await query
+                .Select(s => s.Categoria!)
+                .Where(c => !string.IsNullOrWhiteSpace(c))
+                .Distinct()
+                .OrderBy(c => c)
+                .ToListAsync();
+
+            var cities = await query
+                .Select(s => s.Cidade!)
+                .Where(c => !string.IsNullOrWhiteSpace(c))
+                .Distinct()
+                .OrderBy(c => c)
+                .ToListAsync();
+
+            var states = await query
+                .Select(s => s.Uf!)
+                .Where(c => !string.IsNullOrWhiteSpace(c))
+                .Distinct()
+                .OrderBy(c => c)
+                .ToListAsync();
+
+            return new FilterOptionsResponse
+            {
+                Categories = categories,
+                Cities = cities,
+                States = states
+            };
+        }
+
+        public async Task<ServicosSummaryResponse> GetSummaryAsync()
+        {
+            var query = _context.Servicos
+                .AsNoTracking()
+                .Where(s => s.Ativo);
+
+            var totalActiveServices = await query.CountAsync();
+
+            var totalCategories = await query
+                .Select(s => s.Categoria!)
+                .Where(c => !string.IsNullOrWhiteSpace(c))
+                .Distinct()
+                .CountAsync();
+
+            var totalCities = await query
+                .Select(s => s.Cidade!)
+                .Where(c => !string.IsNullOrWhiteSpace(c))
+                .Distinct()
+                .CountAsync();
+
+            var totalStates = await query
+                .Select(s => s.Uf!)
+                .Where(c => !string.IsNullOrWhiteSpace(c))
+                .Distinct()
+                .CountAsync();
+
+            return new ServicosSummaryResponse
+            {
+                TotalActiveServices = totalActiveServices,
+                TotalCategories = totalCategories,
+                TotalCities = totalCities,
+                TotalStates = totalStates
+            };
         }
     }
 }

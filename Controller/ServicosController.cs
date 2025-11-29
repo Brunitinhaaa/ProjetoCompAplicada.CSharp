@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using ProjetoCompAplicada.CSharp.Models;
 using ProjetoCompAplicada.CSharp.UseCases.Servicos;
 
 namespace ProjetoCompAplicada.CSharp.Controllers
@@ -15,10 +16,11 @@ namespace ProjetoCompAplicada.CSharp.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetServicos([FromQuery] PublicServicosFilter filter)
+        public async Task<IActionResult> Get([FromQuery] PublicServicosFilter filter)
         {
             var result = await _servicoPublicQueryService.GetServicosAsync(filter);
-            return Ok(result);
+
+            return Ok(ResponseBase<object>.Ok(result));
         }
 
         [HttpGet("{id:long}")]
@@ -27,9 +29,28 @@ namespace ProjetoCompAplicada.CSharp.Controllers
             var servico = await _servicoPublicQueryService.GetServicoByIdAsync(id);
 
             if (servico == null)
-                return NotFound(new { message = "ServiÁo n„o encontrado." });
+            {
+                return NotFound(ResponseBase<object>.Fail(
+                    new[] { "Servi√ßo n√£o encontrado." },
+                    "Recurso n√£o encontrado"
+                ));
+            }
 
-            return Ok(servico);
+            return Ok(ResponseBase<object>.Ok(servico));
+        }
+
+        [HttpGet("filter-options")]
+        public async Task<IActionResult> GetFilterOptions()
+        {
+            var result = await _servicoPublicQueryService.GetFilterOptionsAsync();
+            return Ok(ResponseBase<FilterOptionsResponse>.Ok(result));
+        }
+
+        [HttpGet("summary")]
+        public async Task<IActionResult> GetSummary()
+        {
+            var result = await _servicoPublicQueryService.GetSummaryAsync();
+            return Ok(ResponseBase<ServicosSummaryResponse>.Ok(result));
         }
     }
 }

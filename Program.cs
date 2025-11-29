@@ -1,7 +1,10 @@
 ﻿using DotNetEnv;
 using Microsoft.Extensions.Logging;
 using ProjetoCompAplicada.CSharp.Configurations;
+using ProjetoCompAplicada.CSharp.Middlewares;
 using ProjetoCompAplicada.CSharp.UseCases.Servicos;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,13 +25,21 @@ builder.Logging.SetMinimumLevel(LogLevel.Warning);
 
 builder.Services.ConfigureDatabase();
 builder.Services.AddApplicationServices();
+
 builder.Services.AddControllers();
+
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationClientsideAdapters();
+builder.Services.AddValidatorsFromAssemblyContaining<PublicServicosFilter>();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IServicoPublicQueryService, ServicoPublicQueryService>();
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {

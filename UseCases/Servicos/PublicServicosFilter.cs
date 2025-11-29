@@ -14,5 +14,7 @@ namespace ProjetoCompAplicada.CSharp.UseCases.Servicos
 
         public string SortBy { get; set; } = "Id";
         public string Direction { get; set; } = "desc";
+
+        public bool? HasImage { get; set; }
     }
 }
