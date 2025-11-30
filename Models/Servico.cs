@@ -26,6 +26,9 @@ namespace ProjetoCompAplicada.CSharp.Models
         [Column("ativo")]
         public bool Ativo { get; set; } = true;
 
+        // Nova propriedade de visibilidade
+        public ServicoVisibilidade Visibilidade { get; set; } = ServicoVisibilidade.Publico;
+
         public string? Cep { get; set; }
         public string? Bairro { get; set; }
 
@@ -55,5 +58,13 @@ namespace ProjetoCompAplicada.CSharp.Models
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
         public bool IsAtivo() => Ativo;
+    }
+
+    // Enum para visibilidade do serviço
+    public enum ServicoVisibilidade
+    {
+        Publico,
+        Privado,
+        Rascunho
     }
 }
