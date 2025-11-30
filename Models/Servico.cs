@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -12,8 +13,9 @@ namespace ProjetoCompAplicada.CSharp.Models
         [Column("id_usuario")]
         public long IdUsuario { get; set; }
 
-        [Required]
-        public string Nome { get; set; } = null!;
+        [Required(ErrorMessage = "O nome é obrigatório")]
+        [StringLength(100, ErrorMessage = "O nome não pode ter mais de 100 caracteres")]
+        public string Nome { get; set; } = string.Empty;
 
         [Column("descricao")]
         public string? Descricao { get; set; }
@@ -22,11 +24,14 @@ namespace ProjetoCompAplicada.CSharp.Models
         public double Preco { get; set; }
 
         [Column("ativo")]
-        public bool Ativo { get; set; }
+        public bool Ativo { get; set; } = true;
 
         public string? Cep { get; set; }
         public string? Bairro { get; set; }
-        public string? Cidade { get; set; }
+
+        [Required(ErrorMessage = "A cidade é obrigatória")]
+        [StringLength(50)]
+        public string Cidade { get; set; } = string.Empty;
 
         [Column("uf")]
         public string? Uf { get; set; }
@@ -37,12 +42,17 @@ namespace ProjetoCompAplicada.CSharp.Models
         [Column("cod_ibge")]
         public string? CodIbge { get; set; }
 
-        public string? Categoria { get; set; }
+        [Required(ErrorMessage = "A categoria é obrigatória")]
+        [StringLength(50, ErrorMessage = "A categoria não pode ter mais de 50 caracteres")]
+        public string Categoria { get; set; } = string.Empty;
 
         [Column("data_hora")]
         public DateTime? DataHora { get; set; }
 
         public Imagem? Imagem { get; set; }
+
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
         public bool IsAtivo() => Ativo;
     }
