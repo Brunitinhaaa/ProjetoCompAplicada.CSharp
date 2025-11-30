@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Htqq4h8qbxs=",
+  "dgSpecHash": "rvUOLyf9kAE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Cristian Leme\\Desktop\\API\\ProjetoCompAplicada.CSharp\\ProjetoCompAplicada.CSharp.csproj",
+  "projectFilePath": "C:\\Users\\Cristian Leme\\Desktop\\correto\\ProjetoCompAplicada.CSharp\\ProjetoCompAplicada.CSharp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Cristian Leme\\.nuget\\packages\\dotnetenv\\3.1.1\\dotnetenv.3.1.1.nupkg.sha512",
     "C:\\Users\\Cristian Leme\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",

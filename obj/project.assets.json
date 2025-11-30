@@ -7329,11 +7329,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Cristian Leme\\Desktop\\API\\ProjetoCompAplicada.CSharp\\ProjetoCompAplicada.CSharp.csproj",
+      "projectUniqueName": "C:\\Users\\Cristian Leme\\Desktop\\correto\\ProjetoCompAplicada.CSharp\\ProjetoCompAplicada.CSharp.csproj",
       "projectName": "ProjetoCompAplicada.CSharp",
-      "projectPath": "C:\\Users\\Cristian Leme\\Desktop\\API\\ProjetoCompAplicada.CSharp\\ProjetoCompAplicada.CSharp.csproj",
+      "projectPath": "C:\\Users\\Cristian Leme\\Desktop\\correto\\ProjetoCompAplicada.CSharp\\ProjetoCompAplicada.CSharp.csproj",
       "packagesPath": "C:\\Users\\Cristian Leme\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Cristian Leme\\Desktop\\API\\ProjetoCompAplicada.CSharp\\obj\\",
+      "outputPath": "C:\\Users\\Cristian Leme\\Desktop\\correto\\ProjetoCompAplicada.CSharp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
